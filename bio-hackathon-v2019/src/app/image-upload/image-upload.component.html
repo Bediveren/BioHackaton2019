@@ -17,7 +17,10 @@
         <button class="square" fxFlex="5" mat-button>
           <mat-icon>crop</mat-icon>
         </button>
-        <button fxFlex="90" mat-button (click)="fileInput.click()"><div *ngIf="image">Upload another photo</div><div *ngIf="!image">Upload photo</div></button>
+        <button fxFlex="90" mat-button (click)="fileInput.click()">
+          <div *ngIf="image">Upload another photo</div>
+          <div *ngIf="!image">Upload photo</div>
+        </button>
       </div>
 
       <div fxLayoutGap="15px" fxLayout="column">
@@ -39,13 +42,13 @@
             </span>
             <span>
               <div>
-                <input class="textField" matInput="text">
+                <input class="textField" matInput="text" [(ngModel)]="totalVolume">
               </div>
               <div>
-                <input class="textField" matInput="text">
+                <input class="textField" matInput="text" [(ngModel)]="gridVolume">
               </div>
               <div class="bottomDiv">
-                <input class="textField" matInput="text">
+                <input class="textField" matInput="text" [(ngModel)]="dilution">
               </div>
             </span>
             <span>
@@ -58,8 +61,10 @@
             </span>
           </mat-card-content>
         </mat-card>
-        <button class="resultButton" mat-button (click)="onUpload()">Count!</button>
-        <app-result-block></app-result-block>
+        <div fxLayout="row" fxLayoutGap="15px">
+          <button fxFlex="33" class="resultButton" mat-button (click)="onUpload()">Count!</button>
+          <app-result-block [totalCells]="totalCells" fxFlex *ngIf="totalCells"> </app-result-block>
+        </div>
       </div>
 
     </div>
@@ -67,7 +72,7 @@
     <div fxFlex="65" fxLayoutAlign="space-around center" fxLayout="column">
       <div fxLayoutAlign="space-around center" fxLayout="column">
         <app-cropper [imgURL]="imgURL"></app-cropper>
-        <div fxFlexAlign="end" *ngIf="cellCount">{{cellCount}}</div>
+        <div class="textField" fxFlexAlign="end" *ngIf="cellCount">Total cells counted: {{cellCount}}</div>
       </div>
     </div>
 

@@ -19,6 +19,12 @@ export class ImageUploadComponent implements OnInit {
   public image: File;
   cellCount: number;
 
+  totalVolume: number = 50;
+  gridVolume: number = 100;
+  dilution: number = 10;
+
+  totalCells: number;
+
   preview(files) {
     if (files.length === 0)
       return;
@@ -40,7 +46,13 @@ export class ImageUploadComponent implements OnInit {
 
   onUpload() {
     this.cellCounter.count(this.image).subscribe(event => {
-      this.cellCount = 324; //Hardcoded fix it
+      this.cellCount = 340; //Hardcoded fix it
+      this.countCells()
     })
+  }
+
+  countCells(){
+
+    this.totalCells = this.cellCount * this.dilution * 1000 * this.totalVolume / this.gridVolume;
   }
 }

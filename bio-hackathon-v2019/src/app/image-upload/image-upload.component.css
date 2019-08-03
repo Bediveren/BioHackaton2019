@@ -63,4 +63,5 @@ button {
 .textField {
   background-color: lightgray;
   height: 25px;
+  text-align: right;
 }
