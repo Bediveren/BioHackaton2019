@@ -17,6 +17,7 @@ export class ImageUploadComponent implements OnInit {
   imgURL: string | ArrayBuffer | null = "assets/logo.png";
   public message: string;
   public image: File;
+  cellCount: number;
 
   preview(files) {
     if (files.length === 0)
@@ -39,7 +40,7 @@ export class ImageUploadComponent implements OnInit {
 
   onUpload() {
     this.cellCounter.count(this.image).subscribe(event => {
-      console.log(event);
+      this.cellCount = 324; //Hardcoded fix it
     })
   }
 }

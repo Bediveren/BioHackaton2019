@@ -1,17 +1,76 @@
 <span style="color:red;" *ngIf="message">{{message}}</span>
 <input style="display: none" #fileInput type="file" accept='image/*' (change)="preview(fileInput.files)"/>
+<div fxLayout="column">
 
-<div fxLayout="row" fxLayoutAlign="center stretch" fxLayoutGap="20px">
-  <div fxLayout="column" fxLayoutGap="2px">
-    <br>
-    <button (click)="fileInput.click()">Select File</button>
-    <br>
-    <button (click)="onUpload()">Count!</button>
-    <br>
-    <app-result-block></app-result-block>
+  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-around start" fxLayoutGap="20px"
+       fxFlexOffset="2">
+
+    <img fxFlexOffset="2" fxFlex src="assets/logo.png" [height]="90">
+    <div fxLayout="column" fxLayoutGap="20px" fxFlex="25">
+
+      <h1 fxFlex class="title">
+        Simple Cell Counter
+      </h1>
+
+      <div fxLayoutGap="15px" fxLayout="row">
+        <button class="square" fxFlex="5" mat-button>?</button>
+        <button class="square" fxFlex="5" mat-button>
+          <mat-icon>crop</mat-icon>
+        </button>
+        <button fxFlex="90" mat-button (click)="fileInput.click()"><div *ngIf="image">Upload another photo</div><div *ngIf="!image">Upload photo</div></button>
+      </div>
+
+      <div fxLayoutGap="15px" fxLayout="column">
+        <mat-card class="example-card" style="padding: 0px;">
+          <mat-card-header>
+            <mat-card-title>Please, enter parameters</mat-card-title>
+          </mat-card-header>
+          <mat-card-content fxLayout="row">
+            <span>
+              <div>
+                Total volume
+              </div>
+              <div>
+                Grid Volume
+              </div>
+              <div class="bottomDiv">
+                Dilution
+              </div>
+            </span>
+            <span>
+              <div>
+                <input class="textField" matInput="text">
+              </div>
+              <div>
+                <input class="textField" matInput="text">
+              </div>
+              <div class="bottomDiv">
+                <input class="textField" matInput="text">
+              </div>
+            </span>
+            <span>
+              <div>
+                mL
+              </div>
+              <div>
+                μL
+              </div>
+            </span>
+          </mat-card-content>
+        </mat-card>
+        <button class="resultButton" mat-button (click)="onUpload()">Count!</button>
+        <app-result-block></app-result-block>
+      </div>
+
+    </div>
+
+    <div fxFlex="65" fxLayoutAlign="space-around center" fxLayout="column">
+      <div fxLayoutAlign="space-around center" fxLayout="column">
+        <app-cropper [imgURL]="imgURL"></app-cropper>
+        <div fxFlexAlign="end" *ngIf="cellCount">{{cellCount}}</div>
+      </div>
+    </div>
+
   </div>
-  <div>
-    <app-cropper [imgURL]="imgURL"></app-cropper>
-  </div>
+
 </div>
-

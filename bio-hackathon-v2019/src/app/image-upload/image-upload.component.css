@@ -1,0 +1,66 @@
+.title {
+  color: #41d367;
+  font-size: 2.8vw;
+}
+
+.example-card {
+  color: #8c8c8c;
+  background-color: #3C3C3C;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+
+.example-card div {
+  padding-top: 18px;
+  padding-left: 18px;
+  font-size: 20px;
+  height: 25px;
+
+}
+
+.bottomDiv {
+  padding-bottom: 18px;
+}
+
+.example-card mat-card-header {
+  color: #0089b4;
+  background-color: #1e1e1e;
+  font-size: 30px;
+
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+
+.mat-card-header-text {
+  margin-left: 18px;
+}
+
+.mat-card-header .mat-card-title {
+  margin-bottom: 6px;
+  margin-top: 8px;
+}
+
+button {
+  background-color: #13abdc;
+  color: white;
+  font-size: 1.2vw;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+
+.square {
+  height: 36px;
+  width: 36px;
+}
+
+.resultButton {
+  background-color: #41d367;
+}
+
+.textField {
+  background-color: lightgray;
+  height: 25px;
+}
