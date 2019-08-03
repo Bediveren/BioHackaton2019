@@ -2,7 +2,11 @@ from bottle import route, run, template
 
 @route('/')
 def index():
-    return '<b>Hello</b>!'
+    from bottle import response
+    from json import dumps
+    rv = [{ "id": 1, "name": "Test Item 1" }, { "id": 2, "name": "Test Item 2" }]
+    response.content_type = 'application/json'
+    return dumps(rv)
 
 @route('/hello/<name>')
 def example(name):
