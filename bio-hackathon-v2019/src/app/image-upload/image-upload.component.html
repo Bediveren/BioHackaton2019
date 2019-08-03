@@ -1,0 +1,17 @@
+<span style="color:red;" *ngIf="message">{{message}}</span>
+<input style="display: none" #fileInput type="file" accept='image/*' (change)="preview(fileInput.files)"/>
+
+<div fxLayout="row" fxLayoutAlign="center stretch" fxLayoutGap="20px">
+  <div fxLayout="column" fxLayoutGap="2px">
+    <br>
+    <button (click)="fileInput.click()">Select File</button>
+    <br>
+    <button (click)="onUpload()">Count!</button>
+    <br>
+    <app-result-block></app-result-block>
+  </div>
+  <div>
+    <app-cropper [imgURL]="imgURL"></app-cropper>
+  </div>
+</div>
+
