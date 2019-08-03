@@ -4,11 +4,6 @@ import {Observable} from "rxjs";
 
 
 const url = 'http://localhost:3000/upload';
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'multipart/form-data'
-  })
-};
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +24,7 @@ export class CellCounterService {
       reportProgress: true
     });
 
-    return this.http.post(url, formData, httpOptions);
+    return this.http.post(url, formData);
   }
 }
 
