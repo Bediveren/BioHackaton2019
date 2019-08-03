@@ -25,29 +25,25 @@ scan_width_end = image_width - cell_width
 plt.imshow(image_filtered, cmap='gray')
 plt.show()
 
-print(np.isclose(image_filtered[96:106, 215:225], cell[2:12, 14:24]))
+plt.imshow(cell, cmap='gray')
+plt.show()
+
 
 
 match_matrix = np.zeros((scan_height_end, scan_width_end))
-for h in range(0, scan_height_end):
-    for w in range(0, scan_width_end):
-        #Iteration of cell pixels
-        matched = 0
-        unmatched = 0
-        for ch in range(0, cell_height):
-            for cw in range(0, cell_width):
-                if cell[ch, cw] == image_filtered[h + ch, w + cw]:
-                    matched += 1
-                else:
-                    unmatched += 1
+
+import itertools
+
+for h, w in itertools.product(range(0, scan_height_end, 10), range(0, scan_width_end, 10)):
+    np.isclose(cell[0:cell_height, 0:cell_width], image_filtered[h:h + cell_height, w:w + cell_width])
+    print(h,w)
+
+#for h in range(0, scan_height_end):
+#    for w in range(0, scan_width_end):
+#        np.isclose(cell[0:cell_height, 0:cell_width], image_filtered[h:h + cell_height, w:w + cell_width]
 
 
 
-        #match_matrix[h, w] = 1 if image_filtered[h, w] == cell[h, w] else 0
-
-cell[3,1] = 1;
-plt.imshow(cell, cmap='gray')
-plt.show()
 
 #plt.imshow(im < val, cmap='gray')
 #plt.show()
