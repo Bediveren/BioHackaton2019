@@ -1,9 +1,14 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpEvent, HttpRequest} from "@angular/common/http";
+import {HttpClient, HttpEvent, HttpHeaders, HttpRequest} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 
 const url = 'http://localhost:3000/upload';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'multipart/form-data'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +18,7 @@ export class CellCounterService {
   constructor(private http: HttpClient) {
   }
 
-  count(image: File): Observable<HttpEvent<any>> {
+  count(image: File): Observable<any> {
     // create a new multipart-form for every file
     const formData: FormData = new FormData();
     formData.append('file', image, image.name);
@@ -24,7 +29,7 @@ export class CellCounterService {
       reportProgress: true
     });
 
-    return this.http.request(req);
+    return this.http.post(url, formData, httpOptions);
   }
 }
 
