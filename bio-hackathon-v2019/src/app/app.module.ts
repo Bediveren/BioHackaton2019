@@ -10,6 +10,8 @@ import { ResultBlockComponent } from './result-block/result-block.component';
 import { CropperComponent } from './cropper/cropper.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import {HttpClientModule} from "@angular/common/http";
     FlexLayoutModule,
     HttpClientModule,
     MatIconModule,
+    FormsModule,
     MatCardModule
   ],
   providers: [],
