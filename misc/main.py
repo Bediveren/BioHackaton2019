@@ -32,11 +32,11 @@ plt.show()
 
 match_matrix = np.zeros((scan_height_end, scan_width_end))
 
-import itertools
+#import itertools
 
-for h, w in itertools.product(range(0, scan_height_end, 10), range(0, scan_width_end, 10)):
-    np.isclose(cell[0:cell_height, 0:cell_width], image_filtered[h:h + cell_height, w:w + cell_width])
-    print(h,w)
+#for h, w in itertools.product(range(0, scan_height_end, 10), range(0, scan_width_end, 10)):
+#    np.isclose(cell[0:cell_height, 0:cell_width], image_filtered[h:h + cell_height, w:w + cell_width])
+#    print(h,w)
 
 #for h in range(0, scan_height_end):
 #    for w in range(0, scan_width_end):
