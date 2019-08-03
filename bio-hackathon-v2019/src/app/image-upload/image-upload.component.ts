@@ -39,7 +39,7 @@ export class ImageUploadComponent implements OnInit {
 
   onUpload() {
     this.cellCounter.count(this.image).subscribe(event => {
-      alert(event.body);
+      console.log(event);
     })
   }
 }
