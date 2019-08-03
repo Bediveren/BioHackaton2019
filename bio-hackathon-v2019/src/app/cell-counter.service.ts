@@ -18,12 +18,6 @@ export class CellCounterService {
     const formData: FormData = new FormData();
     formData.append('file', image, image.name);
 
-    // create a http-post request and pass the form
-    // tell it to report the upload progress
-    const req = new HttpRequest('POST', url, formData, {
-      reportProgress: true
-    });
-
     return this.http.post(url, formData);
   }
 }
