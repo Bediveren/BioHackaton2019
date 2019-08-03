@@ -5,16 +5,20 @@ import math
 import numpy as np
 from skimage.exposure import histogram
 from skimage import measure
-
 #Preparing data
-im = io.imread('lp.png', as_grey=True)
+im = io.imread('../data/img5.jpg', as_grey=True)
+io.imsave('../data/gimg5.jpg', im)
 
 val = filters.threshold_otsu(im)
 image_filtered = ndimage.binary_fill_holes(im < val)
 image_eroded = ndimage.binary_erosion(image_filtered, structure=np.ones((2,2)))
 
 plt.imshow(im, cmap='gray', interpolation='nearest')
-plt.show()
+#plt.show()
+plt.imshow(image_filtered, cmap='gray', interpolation='nearest')
+#plt.show()
+plt.imshow(image_eroded, cmap='gray', interpolation='nearest')
+#plt.show()
 
 #Remove irregular areas
 cellcount = measure.label(image_eroded)
