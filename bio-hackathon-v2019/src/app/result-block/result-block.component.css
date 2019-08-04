@@ -2,6 +2,9 @@
   background-color: lightgray;
   height: 25px;
   text-align: right;
+  font-size: 1.5vw;
+  color: #00005f;
+
 }
 
 label {

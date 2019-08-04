@@ -3,21 +3,21 @@
 <div fxLayout="column">
 
   <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-around start" fxLayoutGap="20px"
-       fxFlexOffset="2">
+       fxFlexOffset="10">
 
     <img fxFlexOffset="2" fxFlex src="assets/logo.png" [height]="90">
-    <div fxLayout="column" fxLayoutGap="20px" fxFlex="25">
+    <div fxLayout="column" fxLayoutGap="20px" fxFlex="30">
 
       <h1 fxFlex class="title">
         Simple Cell Counter
       </h1>
 
       <div fxLayoutGap="15px" fxLayout="row">
-        <button class="square" fxFlex="5" mat-button>?</button>
-        <button class="square" fxFlex="5" mat-button>
+        <button class="square" fxFlex="13" >?</button>
+        <button class="square" fxFlex="13" >
           <mat-icon>crop</mat-icon>
         </button>
-        <button fxFlex="90" mat-button (click)="fileInput.click()">
+        <button fxFlex="70" mat-button (click)="fileInput.click()">
           <div *ngIf="image">Upload another photo</div>
           <div *ngIf="!image">Upload photo</div>
         </button>
@@ -29,7 +29,7 @@
             <mat-card-title>Please, enter parameters</mat-card-title>
           </mat-card-header>
           <mat-card-content fxLayout="row">
-            <span>
+            <span fxFlex="40">
               <div>
                 Total volume
               </div>
@@ -40,18 +40,18 @@
                 Dilution
               </div>
             </span>
-            <span>
+            <span fxFlex="40">
               <div>
-                <input class="textField" matInput="text" [(ngModel)]="totalVolume">
+                <input class="textField" matInput="number" [(ngModel)]="totalVolume">
               </div>
               <div>
-                <input class="textField" matInput="text" [(ngModel)]="gridVolume">
+                <input class="textField" matInput="number" [(ngModel)]="gridVolume">
               </div>
               <div class="bottomDiv">
-                <input class="textField" matInput="text" [(ngModel)]="dilution">
+                <input class="textField" matInput="number" [(ngModel)]="dilution">
               </div>
             </span>
-            <span>
+            <span fxFlex="20">
               <div>
                 mL
               </div>
@@ -62,7 +62,7 @@
           </mat-card-content>
         </mat-card>
         <div fxLayout="row" fxLayoutGap="15px">
-          <button fxFlex="33" class="resultButton" mat-button (click)="onUpload()">Count!</button>
+          <button fxFlex="28" class="resultButton" mat-button (click)="onUpload()">Count!</button>
           <app-result-block [totalCells]="totalCells" fxFlex *ngIf="totalCells"> </app-result-block>
         </div>
       </div>
@@ -72,7 +72,7 @@
     <div fxFlex="65" fxLayoutAlign="space-around center" fxLayout="column">
       <div fxLayoutAlign="space-around center" fxLayout="column">
         <app-cropper [imgURL]="imgURL"></app-cropper>
-        <div class="textField" fxFlexAlign="end" *ngIf="cellCount">Total cells counted: {{cellCount}}</div>
+        <div fxFlexAlign="end" *ngIf="cellCount" fxLayout="row"><div class="resultLabel">Total cells counted:</div> <div class="resultOutput">{{cellCount}}</div></div>
       </div>
     </div>
 

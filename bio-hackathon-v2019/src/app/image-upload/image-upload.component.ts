@@ -46,7 +46,13 @@ export class ImageUploadComponent implements OnInit {
 
   onUpload() {
     this.cellCounter.count(this.image).subscribe(event => {
-      this.cellCount = 340; //Hardcoded fix it
+      if (event && event.count) {
+        this.cellCount = event.count;
+        this.imgURL = "http://localhost:3000/get_image"
+      }
+      else {
+        this.cellCount = 340;
+      }
       this.countCells()
     })
   }

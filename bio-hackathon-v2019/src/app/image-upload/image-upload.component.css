@@ -1,6 +1,7 @@
 .title {
-  color: #41d367;
+  color: lawngreen;
   font-size: 2.8vw;
+  text-shadow: -1px 0 #13abdc, 0 1px #13abdc, 1px 0 #13abdc, 0 -1px #13abdc;
 }
 
 .example-card {
@@ -14,7 +15,8 @@
 .example-card div {
   padding-top: 18px;
   padding-left: 18px;
-  font-size: 20px;
+  font-size: 1.6vw;
+  word-wrap: break-word;
   height: 25px;
 
 }
@@ -49,19 +51,41 @@ button {
   border-style: solid;
   border-width: 1px;
   border-color: white;
+  white-space: normal;
+  word-wrap: break-word;
+  border-radius: 12px;
 }
 
 .square {
-  height: 36px;
-  width: 36px;
+  max-height: 36px;
+  max-width: 36px;
 }
 
 .resultButton {
-  background-color: #41d367;
+  background-color: #41eb67;
+  font-size: 1.8vw;
 }
 
 .textField {
   background-color: lightgray;
   height: 25px;
   text-align: right;
+  font-size: 1.8vw;
+  max-width: 120px;
+}
+
+.resultLabel {
+  color: #ada8af;
+  font-size: 2vw;
+}
+
+.resultOutput {
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  background-color: #1e1e1e;
+  color: #13abdc;
+  font-size: 2vw;
+  padding: 0 15px  0 15px;
+  margin-left: 5px;
 }
