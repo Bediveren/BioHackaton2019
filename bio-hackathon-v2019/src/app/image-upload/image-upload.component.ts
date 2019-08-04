@@ -19,11 +19,12 @@ export class ImageUploadComponent implements OnInit {
   public image: File;
   cellCount: number;
 
-  totalVolume: number = 50;
-  gridVolume: number = 100;
-  dilution: number = 10;
+  totalVolume: number;
+  gridVolume: number;
+  dilution: number;
 
   totalCells: number;
+  spinner: boolean = false;
 
   preview(files) {
     if (files.length === 0)
@@ -45,10 +46,12 @@ export class ImageUploadComponent implements OnInit {
   }
 
   onUpload() {
+    this.spinner = true;
     this.cellCounter.count(this.image).subscribe(event => {
       if (event && event.count) {
         this.cellCount = event.count;
-        this.imgURL = "http://localhost:3000/get_image/" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        this.spinner = false;
+        // this.imgURL = "http://localhost:3000/get_image/" + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
       }
       else {
         this.cellCount = 340;
