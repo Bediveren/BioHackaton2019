@@ -8,8 +8,8 @@ from flask import send_file
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/get_image')
-def get_image():
+@app.route('/get_image/<id>')
+def get_image(id):
     return send_file("result.jpeg", mimetype='image/gif')
 
 @app.route('/upload',methods = ['POST', 'GET'])

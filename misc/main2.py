@@ -7,10 +7,10 @@ from skimage.exposure import histogram
 from skimage import measure, transform
 from skimage.transform import rescale, resize, downscale_local_mean
 #Preparing data
-im = io.imread('../data/img1.jpg', as_grey=True)
+im = io.imread('../data/img3.jpg')
 image_rescaled = rescale(im, 2.5, anti_aliasing=True)
 image_rotated = transform.rotate(image_rescaled, 15)
-io.imsave('../data/ScaleRotate15gimg1.jpg', image_rotated)
+io.imsave('../data/Mazphoto3.jpg', image_rescaled)
 
 val = filters.threshold_otsu(im)
 image_filtered = ndimage.binary_fill_holes(im < val)
