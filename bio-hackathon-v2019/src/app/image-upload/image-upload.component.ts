@@ -19,9 +19,9 @@ export class ImageUploadComponent implements OnInit {
   public image: File;
   cellCount: number;
 
-  totalVolume: number = 50;
-  gridVolume: number = 100;
-  dilution: number = 10;
+  totalVolume: number;
+  gridVolume: number;
+  dilution: number;
 
   totalCells: number;
 
