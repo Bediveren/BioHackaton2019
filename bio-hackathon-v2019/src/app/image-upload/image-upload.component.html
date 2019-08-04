@@ -6,14 +6,15 @@
        fxFlexOffset="10">
 
     <img fxFlexOffset="2" fxFlex src="assets/logo.png" [height]="90">
-    <div fxLayout="column" fxLayoutGap="20px" fxFlex="30">
+
+    <div fxLayout="column" fxLayoutGap="20px" fxFlex="40">
 
       <h1 fxFlex class="title">
         Simple Cell Counter
       </h1>
 
       <div fxLayoutGap="15px" fxLayout="row">
-        <button class="square" fxFlex="13" >?</button>
+        <button class="square questionMark" fxFlex="13" >?</button>
         <button class="square" fxFlex="13" >
           <mat-icon>crop</mat-icon>
         </button>
@@ -62,14 +63,14 @@
           </mat-card-content>
         </mat-card>
         <div fxLayout="row" fxLayoutGap="15px">
-          <button fxFlex="28" class="resultButton" mat-button (click)="onUpload()">Count!</button>
+          <button fxFlex="41" class="resultButton" mat-button (click)="onUpload()">Count</button>
           <app-result-block [totalCells]="totalCells" fxFlex *ngIf="totalCells"> </app-result-block>
         </div>
       </div>
 
     </div>
 
-    <div fxFlex="65" fxLayoutAlign="space-around center" fxLayout="column">
+    <div fxFlex="55" fxLayoutAlign="space-around center" fxLayout="column">
       <div fxLayoutAlign="space-around center" fxLayout="column">
         <app-cropper [imgURL]="imgURL"></app-cropper>
         <div fxFlexAlign="end" *ngIf="cellCount" fxLayout="row"><div class="resultLabel">Total cells counted:</div> <div class="resultOutput">{{cellCount}}</div></div>
