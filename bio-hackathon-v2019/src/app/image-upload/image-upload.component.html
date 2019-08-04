@@ -73,6 +73,7 @@
     <div fxFlex="55" fxLayoutAlign="space-around center" fxLayout="column">
       <div fxLayoutAlign="space-around center" fxLayout="column">
         <app-cropper [imgURL]="imgURL"></app-cropper>
+        <div class="lds-spinner" *ngIf="spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         <div fxFlexAlign="end" *ngIf="cellCount" fxLayout="row"><div class="resultLabel">Total cells counted:</div> <div class="resultOutput">{{cellCount}}</div></div>
       </div>
     </div>
