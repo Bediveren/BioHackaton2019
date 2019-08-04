@@ -16,8 +16,11 @@ def count_cells():
     #io.imsave('../data/ScaleRotate15gimg1.jpg', image_rotated)
     #im = np.asarray( image, dtype="int32" )
     val = filters.threshold_otsu(im)
-    image_filtered = ndimage.binary_fill_holes(im < val)
+    image_filtered = ndimage.binary_fill_holes(im <  val)
     image_eroded = ndimage.binary_erosion(image_filtered, structure=np.ones((2,2)))
+
+    extremas = ndimage.extrema(im)
+    print(len(extremas))
 
     #Remove irregular areas
     cellcount = measure.label(image_filtered)
